@@ -1,0 +1,224 @@
+.HomeWrapper {
+  background-color: $darkblue;
+  color: $white;
+
+  .HomepageTopBar {
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+/**
+ * This is where we configure how the individually styled components are displayed
+ * on the homepage.  Don't use this for styling those components, only for adjustments
+ * that are necessary in how they interact with each other.
+ */
+.Homepage {
+  margin-bottom: rem-calc(70);
+
+  .IntroPane {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: rem-calc(80);
+  }
+
+  .HomepageHero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .HomepageHero + .mouse-icon {
+    position: relative;
+    margin-left: -12px; /* Subtracting half it's width, so any positioning will be relative to it's center, not left edge*/
+    top: rem-calc(-60);
+    left: 50%;
+  }
+
+  .AboutProductPane {
+    margin-bottom: rem-calc(90);
+  }
+  .GetStartedPane {
+    margin-bottom: rem-calc(90);
+  }
+  .FurtherReadingPane {
+    margin-bottom: rem-calc(70);
+  }
+  .GetStartedPane + .FurtherReadingPane:before, .AboutProductPane + .GetStartedPane:before {
+    width: rem-calc(309);
+    height: 1px;
+    border-top: 1px dashed $dashing-gray;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    margin-bottom: rem-calc(90);
+  }
+}
+
+/**
+ * Everything that follows is a component that only exists on the homepage.
+ */
+.HomepageHero {
+  @include xy-grid-container();
+  .inner {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .Branding {
+    margin-bottom: rem-calc(46.5);
+    @include grid-column-gutter();
+  }
+  ul.links {
+    list-style:none;
+    margin: 0;
+    li {
+      margin: 0 4.53125%;
+    }
+    @include breakpoint(medium) {
+      display: flex;
+      align-items: center;
+      li {
+        margin: 0 1.5625%;
+        width: 100%;
+        white-space: nowrap;
+      }
+    }
+    a {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.AboutProductPane {
+  .inner {
+    @include xy-grid-container();
+    @include xy-grid();
+  }
+  .note, .shot-casing {
+    @include xy-cell();
+  }
+  .shot-casing {
+    display: block;
+    flex: unset;
+    width: 100%;
+  }
+
+  @include breakpoint(medium) {
+    .note, .shot-casing {
+      @include xy-cell($size: auto);
+    }
+    .note { margin-top: rem-calc(93); }
+  }
+  .shot {
+    background: url(../img/laptop_illo.svg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: rem-calc(389);
+    margin-top: 1rem;
+    @include breakpoint(medium) {
+      width: rem-calc(560px);
+      transform: translateX(rem-calc(65));
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    color: #919DA8;
+    text-transform: uppercase;
+    font-family: $body-font-family;
+    font-size: rem-calc(18);
+    font-weight: bold;
+  }
+  p {
+    font-family: $body-font-family;
+    font-size: rem-calc(18);
+    letter-spacing: 1px;
+    line-height: rem-calc(47);
+    font-weight: 300;
+  }
+}
+
+.FurtherReadingPane {
+  h2 {
+    font-size: rem-calc(42);
+    line-height: rem-calc(51);
+    margin-bottom: rem-calc(80);
+    text-align: center;
+    font-weight: bold;
+  }
+  ul.links {
+    list-style: none;
+    margin: 0;
+    @include xy-grid();
+    @include xy-grid-layout(1, 'li', true, $gutter-type: padding, $gutter-position: left right top bottom);
+    li {
+      a {
+        @include dashing-hoverable;
+        display: block;
+        color: $white;
+        text-align: left;
+        padding: rem-calc(18) rem-calc(26);
+        font-size: rem-calc(18);
+        font-weight: bold;
+        letter-spacing: rem-calc(1);
+        line-height: rem-calc(22);
+      }
+    }
+  }
+  // BP Adjustments
+  @include breakpoint(medium) {
+    ul.links {
+      @include xy-grid-layout(2, 'li', true, $gutter-type: padding, $gutter-position: left right top bottom);
+      li a {
+        padding-top: rem-calc(183);
+      }
+    }
+  }
+  @include breakpoint(large) {
+    ul.links {
+      @include xy-grid-layout(4, 'li', true, $gutter-type: padding, $gutter-position: left right top bottom);
+    }
+
+  }
+}
+
+.GetStartedPane {
+  @include xy-grid-container();
+  text-align:center;
+  .logo {
+    stroke: white;
+    fill: white;
+    width: rem-calc(155);
+  }
+  h2 {
+    font-size: rem-calc(44);
+    line-height: rem-calc(54);
+    font-weight: bold;
+    margin-bottom: rem-calc(96);
+  }
+  .intro {
+    background-color: #1B2126;
+    padding: rem-calc(30) rem-calc(50);
+    margin: 0 auto;
+    max-width: rem-calc(600);
+    h3 {
+      font-size: rem-calc(24);
+      font-weight: bold;
+      line-height: rem-calc(36);
+      text-transform: uppercase;
+      margin-top: -3rem;
+      span {
+        display: block;
+        font-size: rem-calc(31);
+        padding-bottom: rem-calc(15px);
+      }
+    }
+  }
+  .ExtensionSelection { margin-top: rem-calc(40); }
+}

@@ -1,0 +1,75 @@
+
+@import "../scss/init";
+/**
+ * @todo: As we reimplement the redesign,
+ * feel free to trash this entire thing and start over...
+ */
+.TopBar {
+  border-bottom: 1px solid #EDEDED;
+  position: relative;
+  background: white;
+  z-index: 5;
+
+  .inner {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .branding-wrap {
+    grid-column: 1;
+    text-align: center;
+    background: #181D22;
+  }
+  .Branding {
+    margin-top: rem-calc(13);
+    margin-bottom: rem-calc(13);
+  }
+}
+
+.MainMenu {
+  &, li {
+    list-style:none;
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    font-weight: bold;
+    display: block;
+    font-size: rem-calc(22);
+    padding: rem-calc(18) rem-calc(33);
+    &:hover {
+      color: inherit;
+    }
+  }
+  li + li {
+    border-top: 1px solid #2C333A
+  }
+  &.for-large {
+    display: flex;
+    justify-content: flex-end;
+    a {
+      $lh: 20;
+      font-size: rem-calc(14);
+      line-height: rem-calc($lh);
+      padding: rem-calc((55-$lh) / 2) rem-calc(12);
+      text-transform: uppercase;
+    }
+    li + li {
+      border-top: none;
+    }
+  }
+  transform-origin: 0 0;
+  &.closed {
+    //transform: scaleY(0);
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform .5s ease, visibility 0s linear .5s;
+  }
+  &.open {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform .5s ease;
+  }
+}
