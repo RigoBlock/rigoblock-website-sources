@@ -19,7 +19,11 @@ export default function Footer() {
         <LearnMore />
         <NewsletterSignup />
         <Branding />
-        <small className="copyright">RigoBlock Intl. &copy; {today.getFullYear()}</small>
+        <small className="copyright">RigoBlock Intl. &copy; {today.getFullYear()}&nbsp;/&nbsp; 
+        <a href="/legal">
+          <span className="text">Legal</span>
+        </a>
+        </small>
       </div>
     </footer>
   )

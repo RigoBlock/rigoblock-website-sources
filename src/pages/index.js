@@ -15,6 +15,8 @@ import MouseIcon from '../components/MouseIcon'
 import ExtensionSelectionTeam from '../components/ExtensionSelectionTeam'
 import ExtensionSelectionAdvisors from '../components/ExtensionSelectionAdvisors'
 import Manny from '!svg-react-loader?name=Logo!../img/Logo.svg'
+import NewsletterSignup from '../components/NewsletterSignup'
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 export default function IndexPage() {
   return (
@@ -23,7 +25,8 @@ export default function IndexPage() {
         <div className="IntroPane">
           <TopBar />
           <HomepageHero />
-          <MouseIcon />
+          
+          {/* <MouseIcon /> */}
         </div>
         <AboutProductPane />
         <GettingStartedTeamPane />
@@ -64,6 +67,17 @@ function HomepageHero() {
             </a>
           </li>
         </ul>
+        <Row style={{paddingTop: "100px"}}>
+          <Col xs={12}>
+            <Row center="xs">
+              <Col xs={6}>
+                <NewsletterSignup />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
+        
       </div>
     </BubbleLayerBoundary>
   )
