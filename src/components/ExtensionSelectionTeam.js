@@ -48,6 +48,13 @@ export default function ExtensionSelectionTeam({ className }) {
           <p>UX & UI Lead, Unix Systems administrator. Previously founder @ cloud hosting company. Partner BLC Network. MSc International Economics from University of Trieste. </p>
         </a>
       </li>
+    </ul>
+  )
+}
+
+export function ExtensionSelectionTeamMembers({ className }) {
+  return (
+    <ul className={`ExtensionSelection ${className}`}>
       <li>
         <a className="Extension">
           <h4>Paolo Longato</h4>
@@ -58,6 +65,18 @@ export default function ExtensionSelectionTeam({ className }) {
         <a className="Extension">
           <h4>Matteo Petrani</h4>
           <p>Experience Designer</p>
+        </a>
+      </li>
+      <li>
+        <a className="Extension">
+          <h4>Luca Del Bianco</h4>
+          <p>Full-Stack Wizard</p>
+        </a>
+      </li>
+      <li>
+        <a className="Extension">
+          <h4>Federico Obialero</h4>
+          <p>Full-stack Developer</p>
         </a>
       </li>
     </ul>

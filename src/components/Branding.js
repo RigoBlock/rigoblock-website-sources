@@ -26,7 +26,7 @@ export default function Branding({
       <div className="right">
         <h2 className="name">Fund Network</h2>
         {slogan && (
-          <h4 className="slogan">Protocol for Decentralized Fund Infrastructure</h4>
+          <h4 className="slogan">A Protocol for Decentralized Fund Infrastructure</h4>
         )}
       </div>
     </Wrap>

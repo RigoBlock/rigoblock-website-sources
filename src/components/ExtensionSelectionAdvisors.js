@@ -36,6 +36,17 @@ export default function ExtensionSelectionAdvisors({ className }) {
           </p>
         </a>
       </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/primoz-kordez-frm-9878b463/"
+          target="_blank"
+          className="Extension">
+          <h4>Primoz Kordez</h4>
+          <p>
+            Blockchain Economics Advisor. Fintech Advisor at Cofound.it & Iconomi.
+          </p>
+        </a>
+      </li>
     </ul>
   )
 }

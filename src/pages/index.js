@@ -12,7 +12,7 @@ import Bubble, {
 } from '../components/Bubble'
 import Video3 from '../components/Video3'
 import MouseIcon from '../components/MouseIcon'
-import ExtensionSelectionTeam from '../components/ExtensionSelectionTeam'
+import ExtensionSelectionTeam, { ExtensionSelectionTeamMembers } from '../components/ExtensionSelectionTeam'
 import ExtensionSelectionAdvisors from '../components/ExtensionSelectionAdvisors'
 import Manny from '!svg-react-loader?name=Logo!../img/Logo.svg'
 import NewsletterSignup from '../components/NewsletterSignup'
@@ -25,7 +25,7 @@ export default function IndexPage() {
         <div className="IntroPane">
           <TopBar />
           <HomepageHero />
-          
+
           {/* <MouseIcon /> */}
         </div>
         <AboutProductPane />
@@ -77,7 +77,7 @@ function HomepageHero() {
           </Col>
         </Row>
 
-        
+
       </div>
     </BubbleLayerBoundary>
   )
@@ -134,6 +134,7 @@ function GettingStartedTeamPane() {
 
       <div className="ChooseExtensionStep Step">
         <ExtensionSelectionTeam />
+        <ExtensionSelectionTeamMembers />
       </div>
     </div>
   )
