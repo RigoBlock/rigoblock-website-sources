@@ -62,9 +62,9 @@ export default class NewsletterSignup extends Component {
         {status === "sending" && <p>Sending…</p>}
         {status === "success" && <p>Success!</p>}
         {status === "error" && <p>Enter email before submitting</p>}
-        <a href="/legal" className="button dashing expanded">
+        {/* <a href="/legal" className="button dashing expanded">
           <span className="text">Legal</span>
-        </a>
+        </a> */}
       </form>
     )
   }

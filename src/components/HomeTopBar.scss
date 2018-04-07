@@ -14,7 +14,7 @@
   }
   .maintained {
     color: #97A6B5;
-    font-size: rem-calc(14);
+    font-size: rem-calc(24);
     line-height: rem-calc(16);
 
     font-weight: 700;
@@ -28,4 +28,13 @@
       margin-left: rem-calc($-zf-bp-value + 39);
     }
   }
+}
+
+.socialIcons {
+  text-align: right;
+
+}
+
+.topBarContainer {
+  padding-top: 5px;
 }

@@ -2,11 +2,11 @@
 @import "../scss/init";
 
 .NewsletterSignup {
-  max-width: rem-calc(321px);
+  // max-width: rem-calc(321px);
   label {
     margin-bottom: rem-calc(16);
     color: $white;
-    text-align: left;
+    text-align: center;
     font-size: rem-calc(18);
     font-weight: 700;
     line-height: 1.222222222;
@@ -31,6 +31,7 @@
       background: $darkblue;
       color: $white;
       overflow: hidden;
+      max-width: 100%;
       &:focus,
       &:hover {
         background-color: inherit;
