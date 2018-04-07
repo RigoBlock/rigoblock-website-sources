@@ -1,0 +1,53 @@
+body {
+  overflow-x: hidden;
+}
+
+// Inline code
+code {
+  font-size: rem-calc(16);
+  border-radius: 2px;
+}
+// Code blocks.  Reset all styling so prismjs can handle it.
+pre code {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.button {
+  // Button variants:
+  @include capsule-shape;
+  &.dashing {
+    @include dashing-button;
+  }
+  &.dashing-icon {
+    @include dashing-button;
+    @include xy-grid();
+    .icon {
+      @include xy-cell(shrink, $gutter-output: false, $gutter-position: right);
+      margin-left: -1.5em;
+      font-size: rem-calc(20);
+      line-height: rem-calc(20);
+    }
+    .text {
+      @include xy-cell(auto, $gutter-output: false);
+      line-height: rem-calc(22);
+    }
+  }
+  &.blue {
+    background: $buttonblue;
+    text-transform: uppercase;
+    max-width: rem-calc(321px);
+    line-height: rem-calc(20);
+    font-size: rem-calc(10);
+    font-weight: bold;
+    padding: rem-calc(21) rem-calc(64);
+    &:hover {
+      background: $buttonblue;
+    }
+  }
+}
+
+.shift-up-by-half > * {
+  transform: translateY(-50%);
+}

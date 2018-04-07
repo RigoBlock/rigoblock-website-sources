@@ -1,0 +1,137 @@
+
+@import "../scss/init";
+
+// This mixin calculates the ratios of the logo, name, and slogan
+@mixin branding-layout($logo_w, $name_font_size, $divider_margin, $reduce_on_mobile: true, $allow_vertical: false) {
+  @if ($allow_vertical) {
+    @include breakpoint(small only) {
+      display: block;
+    }
+  }
+  .logo {
+    // Height is calculated at a ratio of 61/63.  Change this if the logo image changes
+    // dimensions.
+    $logo_h: (61/63) * $logo_w;
+    width: rem-calc($logo_w);
+    height: rem-calc($logo_h);
+    @if ($allow_vertical) {
+      @include breakpoint(small only) {
+        margin-bottom: rem-calc(23)
+      }
+    }
+  }
+  .right {
+    // Separator should be have right margin as specified, left margin
+    // applied at a ratio of 42/39 of the right margin.
+    margin-left: rem-calc($divider_margin);
+    padding-left: rem-calc($divider_margin * 42/39);
+    @if ($allow_vertical) {
+      flex-direction: column;
+      align-items: start;
+      @include breakpoint(small only) {
+        margin: 0;
+        padding: 0;
+        border: none;
+        align-items: center;
+      }
+    }
+  }
+  .name {
+    @if ($reduce_on_mobile) {
+      font-size: rem-calc($name_font_size * .85);
+      @include breakpoint(medium) {
+        font-size: rem-calc($name_font_size);
+      }
+    } @else {
+      font-size: rem-calc($name_font_size);
+    }
+    @if ($allow_vertical) {
+      @include breakpoint(small only) {
+        margin-bottom: rem-calc(23);
+        font-size: rem-calc(40);
+      }
+    }
+  }
+  .slogan {
+    margin-top: rem-calc(10);
+    // Shift the slogan left 6px when the name_font_size is 73px, and scale
+    // that margin accordingly at all other sizes.
+    margin-left: rem-calc((6 * $name_font_size / 73));
+    @if ($allow_vertical) {
+      @include breakpoint(small only) {
+        margin: 0 rem-calc(10);
+        font-size: rem-calc(10);
+        text-align: center;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+.Branding {
+  display: inline-flex;
+  .right {
+    text-align: left;
+    border-left: 1px dashed $dashing-gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .name {
+    font-family: $impact-font-family;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0;
+    line-height: 0.7;
+  }
+  .logo {
+    stroke: white;
+    fill: white;
+  }
+  .logo + .name:before {
+    content: "";
+    border-left: 1px dashed $dashing-gray;
+    width: 1px;
+    display:inline-block;
+    vertical-align: middle;
+  }
+  .slogan {
+    margin-bottom: 0;
+    font-size: rem-calc(12);
+    color: inherit;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 0.7;
+    span {
+      background-color: #1B2126;
+    }
+  }
+
+  @include branding-layout( $logo_w: 53,
+                            $name_font_size: 31,
+                            $divider_margin: 20 );
+  // Variations:
+  &.dark {
+    .logo {
+      stroke: $black;
+      fill: $black;
+    }
+    .name {
+      color: $black;
+    }
+  }
+  &.tiny {
+    @include branding-layout( $logo_w: 27,
+                              $name_font_size: 24,
+                              $divider_margin: 10,
+                              $reduce_on_mobile: false);
+  }
+  &.large {
+    @include branding-layout( $logo_w: 100,
+                              $name_font_size: 73,
+                              $divider_margin: 39,
+                              $allow_vertical: true);
+  }
+}

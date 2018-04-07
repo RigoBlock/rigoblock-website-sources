@@ -1,0 +1,31 @@
+
+@import "../scss/init";
+
+.HomepageTopBar {
+  @include xy-grid-container();
+  a.logo {
+    position:fixed;
+    @include xy-gutters();
+    img {
+      width:rem-calc(55);
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+  }
+  .maintained {
+    color: #97A6B5;
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: rem-calc(24) 0;
+    padding-left: 15px;
+    // Add a left-margin equal to the .logo width + .logo left and right gutters.
+    @include -zf-breakpoint-value(auto, $grid-margin-gutters) {
+      margin-left: rem-calc($-zf-bp-value + 39);
+    }
+  }
+}
